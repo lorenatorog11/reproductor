@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import ReactPlayer from 'react-player';
+import subtitles from './subtitles/subtitles.vtt';
 
 function App() {
+  console.log({subtitles})
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='video'>
+      <ReactPlayer 
+        width='100%'
+        height='100%'
+        playing
+        controls
+        url='https://d2ni8vd6etkcfg.cloudfront.net/assets/2ea43277-ec46-4897-a551-066095ffd7d9/HLS/142_THE_TERMINAL_.m3u8'
+        config={{ file: {
+          attributes: {
+            crossOrigin: 'true'
+          },
+          tracks: [
+            {kind: 'subtitles', src: subtitles, srcLang: 'es', default:true, label:'Español'},
+          ]
+        }}} 
+      />
     </div>
   );
 }
