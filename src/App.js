@@ -2,7 +2,6 @@ import ReactPlayer from 'react-player';
 import subtitles from './subtitles/subtitles.vtt';
 
 function App() {
-  console.log({subtitles})
   return (
     <div className='video'>
       <ReactPlayer 
@@ -12,9 +11,6 @@ function App() {
         controls
         url='https://d2ni8vd6etkcfg.cloudfront.net/assets/2ea43277-ec46-4897-a551-066095ffd7d9/HLS/142_THE_TERMINAL_.m3u8'
         config={{ file: {
-          attributes: {
-            crossOrigin: 'true'
-          },
           tracks: [
             {kind: 'subtitles', src: subtitles, srcLang: 'es', default:true, label:'Español'},
           ]
